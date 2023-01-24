@@ -18,7 +18,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
 
  1.) Redux is used here for state managenent(store, provider,reducers and actions), which allows for scaling of this application\
  2.) A Carousel of top products is displayed in the frontend, as a UI feature to aid users (it just collects products from the same location as the products displayed below it.\
- 3.) Passwords are stored as hashes in the database and decrypted with Bcrypt library (as a way to protect our uses information from being compromised
+ 3.) Passwords are stored as hashes in the database and decrypted with Bcrypt library (as a way to protect our uses information from being compromised\
  4.) Pagination Requests for Items from the database, 3 items at a time, for a less clustered display.
  
  
