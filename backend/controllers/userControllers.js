@@ -9,7 +9,7 @@ import generateToken from '../utils/generateToken.js'
 //@route POST /api/users/login
 //@access Public
 const authUser = asyncHandler(async (req,res)=>{
-
+  res.header("Access-Control-Allow-Origin","*")
   const{email,password} = req.body
    //req.body will give us the object thats sent in the body of our front end/POSTMAN JSON, take note
   /* res.send({email,  this res,send was just done for example btw
@@ -38,7 +38,7 @@ const authUser = asyncHandler(async (req,res)=>{
 //@route POST /api/users
 //@access Public
 const registerUser = asyncHandler(async (req,res)=>{
-
+  res.header("Access-Control-Allow-Origin","*")
   const{name, email, password,isAdmin} = req.body
    //req.body will give us the object thats sent in the body of our front end/POSTMAN JSON, take note
   /* res.send({email,  this res,send was just done for example btw

@@ -8,7 +8,8 @@ import asyncHandler from 'express-async-handler'
 //@access Public
 
 const getProducts = asyncHandler(async (req,res)=>{
-     const pageSize = 3 //i recommend 6 per page
+  res.header("Access-Control-Allow-Origin","*")
+  const pageSize = 3 //i recommend 6 per page
      const page = Number(req.query.pageNumber) || 1
 
  
@@ -31,6 +32,7 @@ const getProducts = asyncHandler(async (req,res)=>{
 //@route GET /api/products/:id
 //@access Public
 const getProductById = asyncHandler(async (req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
   const product = await Product.findOne({_id:req.params.id})
   if(product){res.json(product)}
    else{ res.status(404) /*with the custom error hadler, if you dont put a res.status, it'll be 500 by default, and you don't have to res.json anymore, it'll just be handled, if yo throw a new error   */
@@ -42,6 +44,7 @@ const getProductById = asyncHandler(async (req,res)=>{
 //@route DELETE /api/products/:id
 //@access Private/Admin
 const deleteProduct = asyncHandler(async (req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
   const product = await Product.findById(req.params.id)
   if(product){
     await product.remove()
@@ -56,6 +59,7 @@ const deleteProduct = asyncHandler(async (req,res)=>{
 //@route POST /api/products
 //@access Private/Admin
 const createProduct = asyncHandler(async (req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
    const product = new Product({
      name: 'Sample name',
      price: 0,
@@ -78,7 +82,7 @@ const createProduct = asyncHandler(async (req,res)=>{
 //@route PUT /api/products/:id
 //@access Private/Admin
 const updateProduct = asyncHandler(async (req,res)=>{
-
+  res.header("Access-Control-Allow-Origin","*")
   const {name,price,description,image,category,countInStock} = req.body
 
   const product= await Product.findById(req.params.id)
@@ -108,7 +112,7 @@ const updateProduct = asyncHandler(async (req,res)=>{
 //@route POST /api/products/:id/review
 //@access Private/Admin
 const createProductReview = asyncHandler(async (req,res)=>{
-
+  res.header("Access-Control-Allow-Origin","*")
   const {rating,comment} = req.body
 
   const product= await Product.findById(req.params.id)
@@ -147,6 +151,7 @@ const createProductReview = asyncHandler(async (req,res)=>{
 //@route GET /api/products/top
 //@access Public
 const getTopProducts = asyncHandler(async (req,res)=>{
+  res.header("Access-Control-Allow-Origin","*")
   const products = await Product.find({}).sort({rating:-1}).limit(3)
   res.json(products)
 })
