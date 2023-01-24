@@ -21,7 +21,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
   4.)  once signed in (as an admin) ,you will see a list of products,separated by pagination, click on "ADMIN FUNCTIONALITY" in the navbar, to view the products in list format and to add a product.\
   
   ## HOW TO USE THE API
-  1.) /api/products/top\
+  1.) /api/products/top
    ###  on Success:  - sample response
     [ {"rating":5,
     "numReviews":12
@@ -47,7 +47,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
     stack::null (stack is visible is not visible in production, only development environment)
     }
   
-  2.) /api/products\
+  2.) /api/products
      
      
    ###  on Success: - sample response
@@ -76,7 +76,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
     stack::null (stack is visible is not visible in production, only development environment)
     }
   
-  3.) /api/products/${id}\
+  3.) /api/products/${id}
   ###  on Success: - sample response
        {"rating":5,
     "numReviews":12
@@ -101,7 +101,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
     stack::null (stack is visible is not visible in production, only development environment)
     }
   
-  4.) anything else\
+  4.) anything else
   
   ### results in Failure
     {
