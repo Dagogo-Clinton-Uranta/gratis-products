@@ -16,20 +16,26 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
  1.) Go To the root directory and run your package manager with the "dev" command (e.g npm run dev)\
  2.) Type npm run client to run only the client, or npm run server to run only the API\
  
+ 
+ ## FRONTEND LINK 
+ https://gratis-frontend-dagogo.netlify.app/
+ 
+ 
   ## HOW TO USE THE FRONTEND
   1.) For a user sign in with jane@example.com (password: 123456) or register a new user\
   2.) For an admin sign in with admin@example.com (password: 123456) or register as an admin\
   3.) once signed in (as a user) ,you will see a list of products,separated by pagination, click on your name in the navbar, to view the products in list format and to add a product.\
   4.)  once signed in (as an admin) ,you will see a list of products,separated by pagination, click on "ADMIN FUNCTIONALITY" in the navbar, to view the products in list format and to add a product.\
   
-  ##TESTING
+  
+ ## TESTING
   1.)unfortunately due to time I was not able to write tests for the api, but what I would have done (using Jest) was:
   a.) I would assert that my API sends me an array
   b.) I would assert that each member of my array is an object
   c.) I would assert that each member of the array had the properties price, countInStock, name,brand ,image, description, createdAt and updatedAt and each property is not null or undefined
   
   
-  ##API LINK
+  ## API LINK
   https://gratis-digital-dagogo.herokuapp.com/
   
   ## HOW TO USE THE API
