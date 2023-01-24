@@ -40,9 +40,32 @@ connectDB()
 if(process.env.NODE_ENV === 'development'){app.use(morgan('dev'))} 
  app.use(express.json())  //express body parser 
 
-app.get('/', (req,res) =>{
-  res.send('API is running...')
-})
+ const __dirname =path.resolve() //OKAY I DID THIS TO MIMIC PATH.JOIN(__DIRNAME) , BECAUSE THE OG __dirname IS ONLY ACCESSIBLE IN COMMON JS AND NOT ES6 SYNTAX
+ app.use('/uploads', express.static(path.join(__dirname,'/uploads')))
+ 
+ 
+ 
+ if(process.NODE_ENV === 'production'){
+ 
+   app.use(express.static(path.join(__dirname,'/frontend/build')))
+ 
+   app.get('*', (req,res) =>{ 
+     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+   })
+ }else{
+   /*app.get('/', (req,res) => {
+     res.send('API is running...')
+   })*/
+ 
+   app.use(express.static(path.join(__dirname,'/frontend/build')))
+ 
+   app.get('*', (req,res) =>{ 
+     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+   })
+ 
+ 
+ 
+ }
 
 app.use('/api/users',userRoutes)
 app.use('/api/products',productRoutes)
