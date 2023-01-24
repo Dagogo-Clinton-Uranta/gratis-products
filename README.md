@@ -9,6 +9,12 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
  3.) run the install command with your package manager (e.g npm install)\
  4.) change directory into the frontend file and run the install command again\
  
+ ## TO START 
+
+ 1.) Go To the root directory and run your package manager with the "dev" command (e.g npm run dev)\
+ 2.) Type npm run client to run only the client, or npm run server to run only the API\
+ 
+ 
  ## Database Structure -
  
  Products = {\
