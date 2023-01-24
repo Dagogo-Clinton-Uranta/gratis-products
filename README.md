@@ -14,6 +14,12 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
  1.) Go To the root directory and run your package manager with the "dev" command (e.g npm run dev)\
  2.) Type npm run client to run only the client, or npm run server to run only the API\
  
+  ## THINGS OF NOTE 
+
+ 1.) Redux is used here for state managenent(store, provider,reducers and actions), which allows for scaling of this application\
+ 2.) A Carousel of top products is displayed in the frontend, as a UI feature to aid users (it just collects products from the same location as the products displayed below it.\
+ 3.) Passwords are stored as hashes in the database and decrypted with Bcrypt library (as a way to protect our uses information from being compromised\
+ 
  
  ## Database Structure -
  
