@@ -31,14 +31,17 @@ import uploadRoutes from './routes/uploadRoutes.js'
 import connectDB from './config/db.js'
 //const connectDB = require('./config/db.js')
 
+import cors from 'cors'
 
 dotenv.config()
  
 connectDB()
 
+
  const app = express()
 if(process.env.NODE_ENV === 'development'){app.use(morgan('dev'))} 
  app.use(express.json())  //express body parser 
+ //app.use(cors())
 
  const __dirname =path.resolve() //OKAY I DID THIS TO MIMIC PATH.JOIN(__DIRNAME) , BECAUSE THE OG __dirname IS ONLY ACCESSIBLE IN COMMON JS AND NOT ES6 SYNTAX
  app.use('/uploads', express.static(path.join(__dirname,'/uploads')))
@@ -53,15 +56,15 @@ if(process.env.NODE_ENV === 'development'){app.use(morgan('dev'))}
      res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
    })
  }else{
-   /*app.get('/', (req,res) => {
+   app.get('/', (req,res) => {
      res.send('API is running...')
-   })*/
+   })
  
-   app.use(express.static(path.join(__dirname,'/frontend/build')))
+  /* app.use(express.static(path.join(__dirname,'/frontend/build')))
  
    app.get('*', (req,res) =>{ 
      res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
-   })
+   })*/
  
  
  

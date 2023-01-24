@@ -8,7 +8,7 @@ import {Container, Row ,Col} from 'react-bootstrap';
        <Container>
          <Row>
           <Col className='text-center py-3'>
-           Copyright &copy; Proshop 2021 {/* &copy is the HTML entity for the copyright sign*/}
+           Copyright &copy; Dagogo 2023 {/* &copy is the HTML entity for the copyright sign*/}
           </Col>
          </Row>
        </Container>

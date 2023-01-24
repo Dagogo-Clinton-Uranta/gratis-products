@@ -21,6 +21,7 @@ import Meta from '../components/Meta'
   const dispatch = useDispatch()
   const productList = useSelector(state => state.productList)
   const {products,loading,error,page,pages} = productList
+  console.log(products)
 
 useEffect(()=>{ //we can't make the useEffect function async
   dispatch(listProducts(keyword,pageNumber)) //please note that this dispatch is not actually dispatch, it's use dispatch, which is making use of the useDispatch connector  and that is calling the productList action, which does stuff like fetching data and dispatching action objects to the reducer. hats why they make action creators separately, so we can see them sending things to he reducer
@@ -42,7 +43,7 @@ useEffect(()=>{ //we can't make the useEffect function async
       {loading ?(<Loader/>):error ?(<Message variant='danger'>{error}</Message>):
       (  <>
         <Row>
-       {products.map((product)=>{
+       {products && products.map((product)=>{
          return(<Col key={product.id} sm={11} md={6} lg={4} xl={3}>
          <ProductComponent product={product} />
          </Col>)
