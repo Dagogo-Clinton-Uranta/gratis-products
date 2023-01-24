@@ -22,6 +22,12 @@ import {notFound,errorHandler} from './Middleware/errorMiddleware.js'
 import userRoutes from './routes/userRoutes.js'
 //const userRoutes = require('./routes/userRoutes.js')
 
+import productRoutes from './routes/productRoutes.js'
+//const productRoutes =require('./routes/productRoutes.js')
+
+import uploadRoutes from './routes/uploadRoutes.js'
+//const uploadRoutes =require('./routes/uploadRoutes.js')
+
 import connectDB from './config/db.js'
 //const connectDB = require('./config/db.js')
 
@@ -39,7 +45,8 @@ app.get('/', (req,res) =>{
 })
 
 app.use('/api/users',userRoutes)
-
+app.use('/api/products',productRoutes)
+app.use('/api/upload',uploadRoutes)
 
 app.use(notFound)
 

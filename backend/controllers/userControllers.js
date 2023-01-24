@@ -39,7 +39,7 @@ const authUser = asyncHandler(async (req,res)=>{
 //@access Public
 const registerUser = asyncHandler(async (req,res)=>{
 
-  const{name, email, password} = req.body
+  const{name, email, password,isAdmin} = req.body
    //req.body will give us the object thats sent in the body of our front end/POSTMAN JSON, take note
   /* res.send({email,  this res,send was just done for example btw
      password}) */ //res.send accepts an object i think and not just variables, take note...hese are part of the things that you have to research on yor own
@@ -50,10 +50,11 @@ const registerUser = asyncHandler(async (req,res)=>{
     throw new Error('user already exists!')
   }
 
-  const user = User.create({ //apparently create is syntactic sugar for the save mehod, since creating entails saving i guess
+  const user = User.create({ //create is syntactic sugar for the save mehod, since creating entails saving i guess
      name:name,
      email:email,
-     password:password
+     password:password,
+     isAdmin:isAdmin
   })
 
    if(user){

@@ -6,13 +6,13 @@ import {Container,Nav,Navbar,NavDropdown} from 'react-bootstrap'
 import {logout} from '../actions/userActions.js'
 import SearchBox from './SearchBox.js'
 
-const Header = () => {
+const Header = ({history}) => {
 
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const {userInfo} = userLogin
   const logoutHandler = () => {
-   dispatch(logout())
+   dispatch(logout(history))
 
   }
     return(
@@ -27,7 +27,7 @@ const Header = () => {
 
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-  <Route render ={({history})=> <SearchBox history={history}/>} /> {/*THERE IS A VERY IMPORTANT THING TO LEARN HERE, IF YOU PUT IN A COMPONONENT DIRECTLY IN THE NAVBAR, IT HAS NO ACCESS TO PROPS, SO YOU GOTTA PUT IT IN A ROUTE AND THEN USE THE RENDER FUNCTION TO PASS IN PROPS..YOU GOTTA STUDY THIS*/}
+  <Route render ={({history})=> <SearchBox history={history}/>} /> 
    <Nav className="ml-auto">
 
     {/*DONT FORGET TO USE THE CDN OF FONT-AWESOME IN INDEX.HTML
@@ -36,11 +36,12 @@ const Header = () => {
 
    {userInfo?(
      <NavDropdown title ={userInfo.name} id='username'>
-     <LinkContainer to='/profile'>
-          <NavDropdown.Item >Profile  </NavDropdown.Item>
-     </LinkContainer>
 
        <NavDropdown.Item onClick={logoutHandler} >Logout </NavDropdown.Item>
+
+    {!userInfo.isAdmin  &&  <LinkContainer to='/admin/productlist'>
+       <NavDropdown.Item >View Products</NavDropdown.Item>
+           </LinkContainer>}
      </NavDropdown>
    ):(
      <LinkContainer to='/login'>
@@ -49,19 +50,14 @@ const Header = () => {
    )}
 
    {userInfo && userInfo.isAdmin && (
-     <NavDropdown title ='Admin' id='adminmenu'>
+     <NavDropdown title ='Admin functionality' id='adminmenu'>
 
-{/*1*/}     <LinkContainer to='/admin/userlist'>
-            <NavDropdown.Item >Users</NavDropdown.Item>
-          </LinkContainer>
 
 {/*1*/}      <LinkContainer to='/admin/productlist'>
-            <NavDropdown.Item >Product</NavDropdown.Item>
+            <NavDropdown.Item >View Products</NavDropdown.Item>
            </LinkContainer>
 
-{/*1*/}      <LinkContainer to='/admin/orderlist'>
-            <NavDropdown.Item >Orders</NavDropdown.Item>
-           </LinkContainer>
+
 
      </NavDropdown>
    )}

@@ -15,6 +15,7 @@ const RegisterScreen = ({location, history}) => { //he is taking location & hist
   const [name,setName] = useState('')
   const [email,setEmail] = useState('')  //component level state right here, not application level state
   const [password,setPassword] = useState('')
+  const [isAdmin,setIsAdmin] = useState(false)
   const [confirmPassword,setConfirmPassword] = useState('')
   const [message,setMessage] = useState(null)
   const dispatch = useDispatch() //dont forget that real dispatches only take place in action creators, you are only calling useDispatch here
@@ -40,7 +41,7 @@ const RegisterScreen = ({location, history}) => { //he is taking location & hist
          setMessage('Passwords do not Match')
        }else{
          //this is where we want to to call our action to dispatch login
-       dispatch(register(name,email,password))
+       dispatch(register(name,email,password,isAdmin))
        }
 
   }
@@ -73,7 +74,21 @@ const RegisterScreen = ({location, history}) => { //he is taking location & hist
 
          </Form.Group>
 
- {/*4*/}      <Form.Group controlId='confirmPassword'>
+
+
+         <fieldset>
+         {/*4*/}        <Form.Group controlId='usertype'>
+
+         <Form.Label>  Are you a User or an Admin? </Form.Label>
+          <div className="mb-3"></div>
+         <Form.Check inline type='radio' name='radiosInline' id='radiosInline1' label="User" onChange={(e)=>setIsAdmin(false)}/>
+          <Form.Check inline type='radio' name='radiosInline' id='radiosInline2' label="Admin" onChange={(e)=>setIsAdmin(true)}/>
+           
+         </Form.Group>
+         </fieldset>
+
+
+ {/*5*/}      <Form.Group controlId='confirmPassword'>
 
                  <Form.Label>  Confirm password  </Form.Label>
                  <Form.Control type='password' placeholder="confirm password" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)}></Form.Control>

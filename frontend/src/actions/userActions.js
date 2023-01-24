@@ -30,18 +30,18 @@
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstants.js'
 
 export const login = (email,password) => async(dispatch) =>{
-   //redux thunk was used just now in the form of async (dispatch) above
+   
   try {
     dispatch({type: USER_LOGIN_REQUEST})
 
-    //we do config cus we wanna send he headers a content type of application/json
+   
     const config = {
       headers:{ 
         'Content-Type':'application/json'
       }
     }
     const {data} = await axios.post('/api/users/login/',{email,password},config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+   
 
     dispatch({
               type: USER_LOGIN_SUCCESS,
@@ -57,34 +57,36 @@ export const login = (email,password) => async(dispatch) =>{
    }
 }
 
-export const logout = () => (dispatch) => {
+export const logout = (history) => (dispatch,history) => {
     localStorage.removeItem('userInfo')
     dispatch({type:USER_LOGOUT})
-    dispatch({type:USER_DETAILS_RESET})    //HE IS DOING THIS IN THE LOGOUT FILE BECAUSE, HE WANTS TO CLEAR OUT USER DETAILS AND ORDER LIST OF ANY PREVIOUSLY LOGGED IN USER, ALL IN ONE FELL SWOOP
+    dispatch({type:USER_DETAILS_RESET})    //I IS DOING THIS IN THE LOGOUT FILE BECAUSE, I WANT TO CLEAR OUT USER DETAILS AND ORDER LIST OF ANY PREVIOUSLY LOGGED IN USER, ALL IN ONE FELL SWOOP
     dispatch({type:ORDER_LIST_MY_RESET})
       dispatch({type:USER_LIST_RESET})
+
+      
 }
  
 
-export const register = (name,email,password) => async(dispatch)=> {
-   //redux thunk was used just now in the form of async (dispatch) above
+export const register = (name,email,password,isAdmin) => async(dispatch)=> {
+  
   try {
     dispatch({type: USER_REGISTER_REQUEST})
 
-    //we do config cus we wanna send he headers a content type of application/json
+    
     const config = {
       headers:{
         'Content-Type':'application/json'
       }
     }
-    const {data} = await axios.post('/api/users',{name,email,password},config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+    const {data} = await axios.post('/api/users',{name,email,password,isAdmin},config)
+    
 
     dispatch({
               type: USER_REGISTER_SUCCESS,
               payload:data})
 
-//cuz we also want to log the user in upon registration we dispatch user-login-success as well
+
     dispatch({
               type: USER_LOGIN_SUCCESS,
               payload:data})
@@ -100,12 +102,12 @@ export const register = (name,email,password) => async(dispatch)=> {
 }
 
 export const getUserDetails = (id) => async (dispatch,getState) => {
-   //redux thunk was used just now in the form of async (dispatch) above
+  
   try {
     dispatch({type: USER_DETAILS_REQUEST})
 
   const {userLogin:{userInfo}} = getState()
-    //we do config cus we wanna send he headers a content type of application/json
+    
     const config = {
       headers:{
         'Content-Type':'application/json',
@@ -127,12 +129,12 @@ export const getUserDetails = (id) => async (dispatch,getState) => {
    }
 }
 export const updateUserProfile  = (user /*the entire user object*/) => async(dispatch,getState) => {
-   //redux thunk was used just now in the form of async (dispatch) above
+ 
   try {
     dispatch({type: USER_UPDATE_PROFILE_REQUEST})
 
      const {userLogin:{userInfo}} = getState()
-    //we do config cus we wanna send the headers a content type of application/json
+    
     const config = {
       headers:{
         'Content-Type':'application/json',
@@ -140,7 +142,7 @@ export const updateUserProfile  = (user /*the entire user object*/) => async(dis
       }
     }
     const {data} = await axios.put(`/api/users/profile`,user,config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+    
 
     dispatch({
               type: USER_UPDATE_PROFILE_SUCCESS,
@@ -157,12 +159,12 @@ export const updateUserProfile  = (user /*the entire user object*/) => async(dis
 
 
 export const listUsers  = () => async (dispatch,getState)=> {
-   //redux thunk was used just now in the form of async (dispatch) above
+  
   try {
     dispatch({type: USER_LIST_REQUEST})
 
      const {userLogin:{userInfo}} = getState()
-    //we do config cus we wanna send he headers a content type of application/json
+   
     const config = {
       headers:{
 
@@ -170,7 +172,7 @@ export const listUsers  = () => async (dispatch,getState)=> {
       }
     }
     const {data} = await axios.get(`/api/users`,config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+  
 
     dispatch({
               type: USER_LIST_SUCCESS,
@@ -186,12 +188,12 @@ export const listUsers  = () => async (dispatch,getState)=> {
 
 
 export const deleteUser  = (id) => async (dispatch,getState)=> {
-   //redux thunk was used just now in the form of async (dispatch) above
+   
   try {
     dispatch({type: USER_DELETE_REQUEST})
 
      const {userLogin:{userInfo}} = getState()
-    //we do config cus we wanna send he headers a content type of application/json
+    
     const config = {
       headers:{
 
@@ -199,7 +201,7 @@ export const deleteUser  = (id) => async (dispatch,getState)=> {
       }
     }
     await axios.delete(`/api/users/${id}`,config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+   
 
     dispatch({
               type: USER_DELETE_SUCCESS})
@@ -214,12 +216,12 @@ export const deleteUser  = (id) => async (dispatch,getState)=> {
 
 
 export const updateUser  = (user) => async (dispatch,getState)=> {
-   //redux thunk was used just now in the form of async (dispatch) above
+  
   try {
     dispatch({type: USER_UPDATE_REQUEST})
 
      const {userLogin:{userInfo}} = getState()
-    //we do config cus we wanna send he headers a content type of application/json
+  
     const config = {
       headers:{
      'Content-Type':'application/json',
@@ -227,7 +229,7 @@ export const updateUser  = (user) => async (dispatch,getState)=> {
       }
     }
     const{data} = await axios.put(`/api/users/${user._id}`, user,config)
-    //i'm gonna take a stab here and say that the third argument for axios is for setting header property
+    
 
     dispatch({  type: USER_UPDATE_SUCCESS})
 
