@@ -1,6 +1,6 @@
 # gratis-products - A products display API and Frontend
 
-This is  a test for gratis digital's role of fullStack Developer. It is Done in Node JS(Express JS), MongoDB and React JS as requested by the company.\
+This is  a test for gratis digital's role of fullStack Developer. It is Done in Node JS(Express JS), MongoDB and React JS as requested by the company.
 
 ## TO INSTALL 
 
@@ -23,21 +23,21 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
   ## HOW TO USE THE API
   1.) /api/products/top\
    ###  on Success:  - sample response
-    [ {"rating":5,\
-    "numReviews":12\
-    "price":399.99,\
-    "countInStock":11,\
-    "_id":"6014a884bb347ceb20e5b8d0",\
-    "name":"Sony Playstation 4 Pro White Version",\
-    "image":"/images/playstation.jpg",\
+    [ {"rating":5,
+    "numReviews":12
+    "price":399.99,
+    "countInStock":11,
+    "_id":"6014a884bb347ceb20e5b8d0",
+    "name":"Sony Playstation 4 Pro White Version",
+    "image":"/images/playstation.jpg",
     "description",:"The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television,music"\,
-    "brand":"Sony","category":"Electronics",\
-    "user":"6014a884bb347ceb20e5b8ca","reviews":[],\
+    "brand":"Sony","category":"Electronics",
+    "user":"6014a884bb347ceb20e5b8ca","reviews":[],
     "v":0\,
-    "createdAt":"2021-01-30T00:29:56.669Z",\
-    "updatedAt":"2021-01-30T00:29:56.669Z"\
+    "createdAt":"2021-01-30T00:29:56.669Z",
+    "updatedAt":"2021-01-30T00:29:56.669Z"
     ,
-    .... and 2 more of the best products in this array, in an object format as well]\
+    .... and 2 more of the best products in this array, in an object format as well]
     
    ### on Failure - sample response
     {
@@ -51,19 +51,19 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
      
      
    ###  on Success: - sample response
-    [ {"rating":5,\
-    "numReviews":12\
-    "price":399.99,\
-    "countInStock":11,\
-    "_id":"6014a884bb347ceb20e5b8d0",\
-    "name":"Sony Playstation 4 Pro White Version",\
-    "image":"/images/playstation.jpg",\
+    [ {"rating":5,
+    "numReviews":12
+    "price":399.99,
+    "countInStock":11,
+    "_id":"6014a884bb347ceb20e5b8d0",
+    "name":"Sony Playstation 4 Pro White Version",
+    "image":"/images/playstation.jpg",
     "description",:"The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television,music"\,
-    "brand":"Sony","category":"Electronics",\
-    "user":"6014a884bb347ceb20e5b8ca","reviews":[],\
+    "brand":"Sony","category":"Electronics",
+    "user":"6014a884bb347ceb20e5b8ca","reviews":[],
     "v":0\,
-    "createdAt":"2021-01-30T00:29:56.669Z",\
-    "updatedAt":"2021-01-30T00:29:56.669Z"\
+    "createdAt":"2021-01-30T00:29:56.669Z",
+    "updatedAt":"2021-01-30T00:29:56.669Z"
      }
     ,
     .... ### all products in the database will come in this array]\
@@ -78,19 +78,19 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
   
   3.) /api/products/${id}\
   ###  on Success: - sample response
-       {"rating":5,\
-    "numReviews":12\
-    "price":399.99,\
-    "countInStock":11,\
-    "_id":"6014a884bb347ceb20e5b8d0",\
-    "name":"Sony Playstation 4 Pro White Version",\
-    "image":"/images/playstation.jpg",\
+       {"rating":5,
+    "numReviews":12
+    "price":399.99,
+    "countInStock":11,
+    "_id":"6014a884bb347ceb20e5b8d0",
+    "name":"Sony Playstation 4 Pro White Version",
+    "image":"/images/playstation.jpg",
     "description",:"The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television,music"\,
-    "brand":"Sony","category":"Electronics",\
-    "user":"6014a884bb347ceb20e5b8ca","reviews":[],\
+    "brand":"Sony","category":"Electronics",
+    "user":"6014a884bb347ceb20e5b8ca","reviews":[],
     "v":0\,
-    "createdAt":"2021-01-30T00:29:56.669Z",\
-    "updatedAt":"2021-01-30T00:29:56.669Z"\
+    "createdAt":"2021-01-30T00:29:56.669Z",
+    "updatedAt":"2021-01-30T00:29:56.669Z"
      }
      
    ### on Failure - sample response
@@ -103,7 +103,7 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
   
   4.) anything else\
   
-  ### on Failure
+  ### results in Failure
     {
     "message":<error message>,
     "success":false,
