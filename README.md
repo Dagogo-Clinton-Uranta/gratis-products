@@ -22,9 +22,9 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
         rating:{type:Number ,required:true ,default:0},\
         numReviews:{type:Number ,required:true ,default:0},\
         price:{type:Number ,required:true ,default:0},\
-        countInStock:{type:Number ,required:true ,default:0},\
+        countInStock:{type:Number ,required:true ,default:0}  
  
- }\
+ }  
  
   Users = {\
         _id:{type:mongoDB object ID type,required:true},\
