@@ -20,6 +20,16 @@ This is  a test for gratis digital's role of fullStack Developer. It is Done in 
   3.) once signed in (as a user) ,you will see a list of products,separated by pagination, click on your name in the navbar, to view the products in list format and to add a product.\
   4.)  once signed in (as an admin) ,you will see a list of products,separated by pagination, click on "ADMIN FUNCTIONALITY" in the navbar, to view the products in list format and to add a product.\
   
+  ##TESTING
+  1.)unfortunately due to time I was not able to write tests for the api, but what I would have done (using Jest) was:
+  a.) I would assert that my API sends me an array
+  b.) I would assert that each member of my array is an object
+  c.) I would assert that each member of the array had the properties price, countInStock, name,brand ,image, description, createdAt and updatedAt and each property is not null or undefined
+  
+  
+  ##API LINK
+  https://gratis-digital-dagogo.herokuapp.com/
+  
   ## HOW TO USE THE API
   1.) /api/products/top
    ###  on Success:  - sample response
