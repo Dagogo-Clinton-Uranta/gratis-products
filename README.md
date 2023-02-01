@@ -2,7 +2,7 @@
 
 This is  a test for gratis digital's role of fullStack Developer. It is Done in Node JS(Express JS), MongoDB and React JS as requested by the company.
 
-### to assessment officer - I, Dagogo Uranta , had to submit this assessment on 24th Jan 2023, instead of 26th Jan 2023 because of a funeral I had to travel to attend. I hope you can take this into consideration, as I have some unfinished work due to this.
+
 
 ## TO INSTALL 
 
